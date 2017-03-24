@@ -13,3 +13,7 @@ RUN curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOM
 RUN ln -s phantomjs-$PHANTOM_JS_VERSION /phantomjs
 
 RUN curl https://install.meteor.com/ | sh
+
+# Fixes issues with builds not going through on Bitbucket Pipeline due to
+# issues reaching unicode.org.
+RUN apt-get install unicode-data
