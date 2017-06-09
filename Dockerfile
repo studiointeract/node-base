@@ -24,4 +24,4 @@ RUN export METEOR_ALLOW_SUPERUSER=true
 RUN apt-get install unicode-data
 
 RUN adduser --disabled-password --gecos '' docker_meteor
-#USER docker_meteor
+USER docker_meteor
