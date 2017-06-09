@@ -23,6 +23,6 @@ RUN export METEOR_ALLOW_SUPERUSER=true
 # issues reaching unicode.org.
 RUN apt-get install unicode-data
 
-RUN adduser --disabled-password --gecos '' docker_meteor
-RUN usermod -aG sudo docker_meteor
-USER docker_meteor
+#RUN adduser --disabled-password --gecos '' docker_meteor
+#RUN usermod -aG sudo docker_meteor
+#USER docker_meteor
