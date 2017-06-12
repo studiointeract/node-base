@@ -17,10 +17,10 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen &&     
 RUN export LANG=en_US.UTF-8
 
 RUN adduser --disabled-password --gecos '' meteor_user
-RUN adduser meteor_user sudo
+RUN usermod -aG sudo meteor_user
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-USER meteor_user
+#USER meteor_user
 
 RUN curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 RUN export METEOR_ALLOW_SUPERUSER=true
