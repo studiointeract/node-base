@@ -16,11 +16,11 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen &&     echo 'LANG="en_US.UTF-8"'>/etc/default/locale &&     dpkg-reconfigure --frontend=noninteractive locales &&     update-locale LANG=en_US.UTF-8
 RUN export LANG=en_US.UTF-8
 
-RUN adduser --disabled-password --gecos '' meteor_user
-RUN usermod -aG sudo meteor_user
+RUN adduser --disabled-password --gecos '' builder
+RUN usermod -aG sudo builder
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-USER meteor_user
+USER builder
 
 RUN curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 RUN export METEOR_ALLOW_SUPERUSER=true
