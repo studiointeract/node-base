@@ -16,18 +16,15 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen &&     echo 'LANG="en_US.UTF-8"'>/etc/default/locale &&     dpkg-reconfigure --frontend=noninteractive locales &&     update-locale LANG=en_US.UTF-8
 RUN export LANG=en_US.UTF-8
 
+RUN adduser --disabled-password --gecos '' meteor_user
+RUN adduser meteor_user sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER meteor_user
+
 RUN curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 RUN export METEOR_ALLOW_SUPERUSER=true
 
 # Fixes issues with builds not going through on Bitbucket Pipeline due to
 # issues reaching unicode.org.
 RUN apt-get install unicode-data
-
-RUN adduser --disabled-password --gecos '' meteor_user
-RUN adduser meteor_user sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-RUN mkdir -p /opt/atlassian/pipelines/agent/data
-RUN chmod 777 /opt/atlassian/pipelines/agent/data
-
-USER meteor_user
