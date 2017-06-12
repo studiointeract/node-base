@@ -23,6 +23,11 @@ RUN export METEOR_ALLOW_SUPERUSER=true
 # issues reaching unicode.org.
 RUN apt-get install unicode-data
 
-RUN adduser --disabled-password --gecos '' r
-RUN adduser r sudo
+RUN adduser --disabled-password --gecos '' meteor_user
+RUN adduser meteor_user sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+RUN mkdir -p /opt/atlassian/pipelines/agent/data
+RUN chmod 777 /opt/atlassian/pipelines/agent/data
+
+USER meteor_user
