@@ -20,11 +20,10 @@ RUN adduser --disabled-password --gecos '' builder
 RUN usermod -aG sudo builder
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-USER builder
-
-RUN curl -sL https://install.meteor.com | sh
-RUN export METEOR_ALLOW_SUPERUSER=true
-
 # Fixes issues with builds not going through on Bitbucket Pipeline due to
 # issues reaching unicode.org.
 RUN apt-get install unicode-data
+
+USER builder
+
+RUN curl -sL https://install.meteor.com | sh
