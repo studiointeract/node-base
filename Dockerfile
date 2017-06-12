@@ -20,7 +20,7 @@ RUN adduser --disabled-password --gecos '' meteor_user
 RUN usermod -aG sudo meteor_user
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-#USER meteor_user
+USER meteor_user
 
 RUN curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 RUN export METEOR_ALLOW_SUPERUSER=true
