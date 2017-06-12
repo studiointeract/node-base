@@ -4,7 +4,7 @@ MAINTAINER Tim Brandin "tim.brandin@studiointeract.se"
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
-RUN apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates
+RUN apt-get install --no-install-recommends -y -q sudo curl python build-essential git ca-certificates
 
 ENV PHANTOM_JS_VERSION 1.9.7-linux-x86_64
 
