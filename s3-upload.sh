@@ -123,3 +123,5 @@ curl                            \
     -F "Content-Type=$mime"     \
     -F "file=@$srcfile"         \
     https://${bucket}.s3.amazonaws.com/ | cat # pipe through cat so curl displays upload progress bar, *and* response
+
+echo "https://s3.${region}.amazonaws.com/${bucket}/$targfile"
