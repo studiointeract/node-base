@@ -1,5 +1,5 @@
 # node-base
-Automation docker container to install and lint with node, and merge with git.
+Automation container to install and lint with node, and merge with git.
 
 ## Packages
 - node
