@@ -1,4 +1,4 @@
-# node-lint-merge
+# node-base
 Automation docker container to install and lint with node, and merge with git.
 
 ## Packages
