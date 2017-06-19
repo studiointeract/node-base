@@ -18,6 +18,4 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 # issues reaching unicode.org.
 RUN apt-get install unicode-data
 
-COPY s3-upload.sh /usr/local/bin/s3-upload
-
 USER builder
