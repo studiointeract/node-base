@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node:8.8.1
 
 MAINTAINER Tim Brandin "tim.brandin@studiointeract.se"
 
