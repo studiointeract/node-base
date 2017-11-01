@@ -1,4 +1,4 @@
-FROM node:boron
+FROM node:latest
 
 MAINTAINER Tim Brandin "tim.brandin@studiointeract.se"
 
