@@ -11,6 +11,8 @@ Automation container to install and lint with node, and merge with git.
 - ca-certificates
 - locales
 - unicode-data
+- meteor
+- chromium
 
 ## User
 - builder
