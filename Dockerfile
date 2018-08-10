@@ -17,6 +17,9 @@ RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 # install meteor
 RUN curl -sL https://install.meteor.com | sh
 
+# Install chimp (for testing)
+RUN npm install -g chimp@0.51.1
+
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen &&     echo 'LANG="en_US.UTF-8"'>/etc/default/locale &&     dpkg-reconfigure --frontend=noninteractive locales &&     update-locale LANG=en_US.UTF-8
 RUN export LANG=en_US.UTF-8
