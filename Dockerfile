@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:8.11.3
 
 MAINTAINER Tim Brandin "tim.brandin@studiointeract.se"
 
